@@ -72,7 +72,7 @@
                     <div class="set" id="install">
                         <div class="set-description">
                             <h3>Installation Instruction</h3>
-                            <p>Requirements: Apache 2.2+, Mysql 5.4+, PHP 5.3+ </p>
+                            <p>Requirements: Apache 2.2+, Mysql 5.4+, PHP 5.4+ </p>
                             <ol>
                                 <li>Copy/Upload the folder and files to your web server using cPanel or FTP</li>
                                 <li>If you are installing in sub folder, please make sure there is no space in folder names</li>
@@ -91,7 +91,7 @@
                                 </li>
                                 <li>If every thing goes smooth, You will be redirect to final page with login details.</li>
                                 <li>Remove the install folder and you are done. In case you have any issue after this, please refer to the <a href="#faqs" class="scroll-to">FAQs</a> section below.</li>
-                                <li>Login using default username and password and add new admin user befiore editing/delete the dedfault user.</li>
+                                <li>Login using default username and password and add new admin user before editing/delete the default user.</li>
                                 <li>Simple Invoice Manager is ready to use.</li>
                             </ol>
                             <h4>Request Installation</h4>
@@ -252,7 +252,7 @@
                                                     <p>
                                                         These are the account type
                                                         <ol>
-                                                            <li>Admin - will have all rigths, and can erform any action. </li>
+                                                            <li>Admin - will have all rights, and can perform any action. </li>
                                                             <li>Sales Staff - will have right to add customer, sales and view sales. No rights to edit any record along with users and settings.</li>
                                                         </ol>
                                                     </p>
@@ -282,7 +282,7 @@
                                         <ul id="errors" class="faq-group">
                                             <li class="faq-title"><h4>Error</h4></li>
                                             <li>
-                                                <a class="default">Why am I getting CloudFlare Security or Blank error on verfication while installating the item?</a>
+                                                <a class="default">Why am I getting CloudFlare Security or Blank error on verification while installation the item?</a>
                                                 <div class="faq-content">
                                                     <p>
                                                         If you are not getting any error but blank red alert or CloudFlare Security error mean your request is no reaching to verification server. Please check that you server is not blocking the curl request and secondly there are chances that CloudFlare might be challenging your request due to various reasons. Please check with your host and request them to white list CloudFlare ips <a href="https://www.cloudflare.com/ips" target="_blank">https://www.cloudflare.com/ips</a>
@@ -520,8 +520,8 @@
             <p>To add select option in setting's language</p>
             <p>Please open <code>themes/<strong>default</strong>/views/settings/index.php</code> and search for ( <code>$available_lang =</code> ) You can replace the <code><strong>default</strong></code> with your theme if you are using different theme. You can add new array key for your language as following:<br><br></p>
             <pre><code>$available_lang = array(<br>        'english' => 'English', <br>        'yourlanguagename' => 'Your Language Name', <br>        );</code></pre>
-            <code>yourlanguagename</code> must be same folder name that you created in app/language/
-
+            <p><code>yourlanguagename</code> must be same folder name that you created in app/language/</p>
+            <p><strong>If you are getting the error "<code>Unable to load the requested language file: language/yourlanguagename/form_validation_lang.php or calendar_lang.php</code>" Then you will need to add your language in lib/language/ as you did above for app/language/ and translate the system language files to your language.</strong></p>
         </div>
 
     </div>
