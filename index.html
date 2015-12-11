@@ -549,6 +549,51 @@
 </div>
 
 <div class="set">
+	<div id="removing" class="inner-set">
+		<div class="set-description">
+			<h3>Removing Required</h3>
+			<div>
+				<p>To remove validation, you will need to edit few files</p>
+				<ol>
+					<li>app/controllers/sleectTheControllerYouWantEdeit</li>
+					<li>themes/default/selectTheAppropriateFolderOrFile</li>
+					<li>Database table to accept null value for that field</li>
+				</ol>
+				<p></p>
+				<p>Please alter the database table to accept the null for your inputs (state).</p>
+				<ol>
+					<li>Open phpmyadmin and select the database</li>
+					<li>Select the customers table</li>
+					<li>Click Structure</li>
+					<li>Click change on field name (state) line</li>
+					<li>Tick/check the null checkbox</li>
+					<li>Click Save</li>
+				</ol>
+				<p>Now try to add customer without city. You won't get any error as we have remove the required validation for this input.</p>
+				<p>You can use these steps to remove the required field for any other fields.</p>
+				<p><strong>Please be careful while removing the required from some fields as these might be used in other modules, like removing the required validation for email to accept customer with no email could cause issues/errors for emailing the invoice to customer.</strong></p>
+			</div>
+
+		</div>
+		<div class="set-dev">
+
+			<h4>Let say we want to remove the restriction from state from add customer</h4>
+			<p>Open themes/default/views/customers/views/add.php and look for state input code</p>
+			<pre style="overflow: hidden;" tabindex="5010"><code class=" hljs bash">&lt;?php <span class="hljs-built_in">echo</span> form_input(<span class="hljs-string">'state'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">'class="form-control" id="state" required="required"'</span>); ?&gt;</code></pre>
+			<p>We need to remove the required (you might need to check pattern) attributes. We will delete the code below</p>
+			<pre style="overflow: hidden;" tabindex="5011"><code class=" hljs bash">required=<span class="hljs-string">"required"</span></code></pre>
+			
+			<p>Please check the rules in controller as app/controllers/customers.php and look for function add() and see the validation line on top as</p>
+			<pre style="overflow: hidden;" tabindex="5014"><code class=" hljs bash"><span class="hljs-variable">$this</span>-&gt;form_validation-&gt;<span class="hljs-keyword">set</span>_rules(<span class="hljs-string">'state'</span>, lang(<span class="hljs-string">"state"</span>), <span class="hljs-string">'required|rule1|rule2'</span>);</code></pre>
+
+			<p>Remove the required from last part of the validation. After this our validation line will look as</p>
+			<pre style="overflow: hidden;" tabindex="5015"><code class=" hljs bash"><span class="hljs-variable">$this</span>-&gt;form_validation-&gt;<span class="hljs-keyword">set</span>_rules(<span class="hljs-string">'state'</span>, lang(<span class="hljs-string">"state"</span>), <span class="hljs-string">'rule1|rule2'</span>);</code></pre>
+            <p>If there is no other rules, you can remove the full line.</p>
+		</div>
+	</div>
+</div>
+
+<div class="set">
     <div class="inner-set" id="datatable">
         <div class="set-description">
             <h3>Sorting Tables</h3>
